@@ -12,7 +12,7 @@ function shuffleArray(array) {
 var numeros = Array.from({ length: 16 }, (_, index) => index + 1);
 
 // Embaralhar o array aleatoriamente
-// numeros = shuffleArray(numeros);
+numeros = shuffleArray(numeros);
 
 // Obter a referência do elemento <div> do tabuleiro
 var numerosAleatoriosDiv = document.querySelector('.puzzle');
