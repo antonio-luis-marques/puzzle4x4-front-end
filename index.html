@@ -9,16 +9,15 @@
     <title>Puzzle</title>
 </head>
 <body>
-
-    <!-- elemento 1: sao apresentados resultados do jogo: ganhou | perdeu -->
-    <div class="fixed-top w-100 h-100 d-none fim align-items-center justify-content-center">
+     <!-- elemento 1: sao apresentados resultados do jogo: ganhou | perdeu -->
+     <div class="fixed-top w-100 h-100 d-none fim align-items-center justify-content-center">
         <div class="alert alert-danger bg-white p-4 d-none perder align-items-center justify-content-center flex-column">
             <h6>voce perdeu</h6>
             <button class="btn btn-primary mt-4">ok</button>
         </div>
         <div class="alert alert-success bg-white p-4 d-none ganhar align-items-center justify-content-center flex-column">
             <h4>Parabens</h4>
-            <h6 class="recarga">
+            <h6 class="recarga d-flex justify-content-center align-items-center">
                 Recarga:
                 <span id="codigo">716394639725</span>
             </h6>
@@ -26,61 +25,45 @@
         </div>
     </div>
     <!-- fim elemento 1 -->
+    <div class="cont py-5">
+        
+        <h5 class="text-warning">PUZZLE 4X4</h5>
 
-    <!-- elemento 2: apresenta titulo do jogo operadora, valor de recarga e tabuleiro de numeros  -->
-    <div class="cont rounded bg-secondary border">
-
-        <!-- elemento 2.1: apresenta titulo do jogo -->
-        <div class="w-100">
-            <h4 class="text-warning text-center m-1 rounded p-1">Quebra Cabeça</h4>
+        <div class="operadora d-flex">
+            <label class="w-100 d-flex flex-column">
+                <span class="text-light">Operadora</span>
+                <select class="form-select select-operadora">
+                    <option value="Vodacom">Vodacom</option>
+                    <option value="Movitel">Movitel</option>
+                    <option value="TMcel">TMcel</option>
+                </select>
+            </label>
         </div>
-        <!-- fim elemento 2.1 -->
 
-        <!-- elemento 2.2:  apresenta operadora, valor de rearga e tabuleiro de numeros; contador de movimentos e tempo-->
-        <div class="col w-100">
-
-            <!-- elemento 2.2.1: apresenta operadora, valor da recarga -->
-            <div class="text-white w-100 operadora">
-                <label class="w-100 ">
-                    <span>Operadora</span>
-                    <select class="form-select select-operadora">
-                        <option value="Vodacom">Vodacom</option>
-                        <option value="Movitel">Movitel</option>
-                        <option value="TMcel">TMcel</option>
-                    </select>
-                </label>
-                <label class="w-100">
-                    <span>Recarga</span>
-                    <select class="form-select select-valor">
-                        <option value="50">50</option>
-                    </select>
-                </label>
-            </div>
-            <!-- fim elemento 2.2.1 -->
-
-            <!-- elemento 2.2.2: contador de movimentos e tempo -->
-            <div class="d-flex w-100 menu pt-2 pb-2 text-white">
-                <button class="btn btn-primary rounded">
-                    Iniciar
-                </button>
-                <span class="move">
-                    move: 0
-                </span>
-                <span class="time">
-                  time: 250
-                </span>
-            </div>
-            <!-- fim elemento 2.2.2 -->
-
-            <!--  elemento 2.2.3: tabuleiro de numeros aleatorios-->
-            <div class="puzzle" style="position: relative;"></div>
-            <!-- fim elemento 2.2.3 -->
-            
+        <div class="recarga d-flex">
+            <label class="d-flex w-100 flex-column">
+                <span class="text-light">Recarga</span>
+                <select class="form-select select-valor">
+                    <option value="50">50</option>
+                </select>
+            </label>
         </div>
-        <!-- fim elemento 2.2 -->
 
+        <div class="d-flex menu menu p-2 text-dark bg-light justify-content-between align-items-center">
+            <button class="btn btn-primary rounded">
+                Start
+            </button>
+            <span class="move">
+                move: 0
+            </span>
+            <span class="time">
+              time: 250
+            </span>
+        </div>
+
+        <div class="puzzle puzzle-container">
+        </div>
     </div>
-    <!-- fim elemento 2 -->
     <script src="static/bootstrap/js/bootstrap.js"></script>
     <script src="static/js/js.js"></script>
 </body>

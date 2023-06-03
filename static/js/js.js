@@ -12,33 +12,37 @@ function shuffleArray(array) {
 var numeros = Array.from({ length: 16 }, (_, index) => index + 1);
 
 // Embaralhar o array aleatoriamente
-// numeros = shuffleArray(numeros);
+numeros = shuffleArray(numeros);
 
 // Obter a referência do elemento <div> do tabuleiro
 var numerosAleatoriosDiv = document.querySelector('.puzzle');
 
-// Gerar números aleatórios e adicionar ao elemento <div>
+// Gerar numeros aleatórios e adicionar ao elemento <div>
 
 for (var i = 0; i < 4; i++) {
   for(var j = 0; j < 4; j++) {
     index = i * 4 + j
     var numeroAleatorio = numeros[index];
     var numeroElemento = document.createElement('button');
+    numeroElemento.classList.add('button');
+    var span = document.createElement('span');
     const atributos = {
       'data-linha': i,
       'data-coluna': j
     };
     for (const chave in atributos) {
       if (atributos.hasOwnProperty(chave)) {
-        numeroElemento.setAttribute(chave, atributos[chave]);
+        span.setAttribute(chave, atributos[chave]);
       }
     }
-    numeroElemento.textContent = numeroAleatorio === 16 ? '' : numeroAleatorio;
+    
+    span.textContent = numeroAleatorio === 16 ? '' : numeroAleatorio;
+    numeroElemento.appendChild(span);
     numerosAleatoriosDiv.appendChild(numeroElemento);
   }
 }
-    // Obter todos os botões do jogo
-    const botoes = document.querySelectorAll('.puzzle button');
+    // Obter todos os botoes do jogo
+    const botoes = document.querySelectorAll('.puzzle button span');
     var estadoDoJogo = "parado"; // Inicialmente, o jogo este parado
 
 
@@ -121,7 +125,7 @@ for (var i = 0; i < 4; i++) {
        if(estadoDoJogo === 'parado'){
         jogoIniciado = true;
         estadoDoJogo = 'jogando';
-        botaoIniciar.innerHTML = 'Recomeçar';
+        botaoIniciar.innerHTML = 'Restart';
         // Obter o elemento span do tempo
         const tempoSpan = document.querySelector('.menu .time');
 
@@ -133,7 +137,7 @@ for (var i = 0; i < 4; i++) {
               tempoSpan.textContent = `time: ${tempoRestante}`;
               if (tempoRestante === 0) {
 
-                 jogada(false);
+                jogada(false);
                 clearInterval(intervalo);
                 perder.classList.remove('d-none');
                 perder.classList.add('d-flex');
